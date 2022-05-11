@@ -37,8 +37,8 @@ jobs:
                 path: docs/_build/dirhtml/
 
         # Deploy to S3
-        deploy:
-          name: Sync to S3 static site
+        # deploy:
+        - name: Sync to S3 static site
           permissions:
             contents: read
             id-token: write
