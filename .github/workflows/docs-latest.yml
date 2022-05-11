@@ -37,15 +37,15 @@ jobs:
                 path: docs/_build/dirhtml/
 
         # Deploy to S3
-        -   name: Sync to S3 static site
-            permissions:
-              contents: read
-              id-token: write
         -   name: Configure AWS credentials
             uses: aws-actions/configure-aws-credentials@v1.6.1
             with:
               aws-region: ${{secrets.AWS_REGION}}
               role-to-assume: ${{ secrets.AWS_OIDC_RUNNER_ROLE }}
+        -   name: Set S3 permissions
+            permissions:
+              contents: read
+              id-token: write
         -   name: Sync to S3
             run: aws s3 sync --quiet ./docs/ s3://pyscript-docs/
 
