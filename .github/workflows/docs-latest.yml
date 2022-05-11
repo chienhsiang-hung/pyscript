@@ -7,11 +7,11 @@ on:
 
 jobs:
     latest:
-      name: Set permissions
-      permissions:
-        contents: read
-        id-token: write
+
         runs-on: ubuntu-latest
+        permissions:
+            contents: read
+            id-token: write
         steps:
 
 
@@ -46,6 +46,7 @@ jobs:
             uses: aws-actions/configure-aws-credentials@v1.6.1
             with:
               aws-region: ${{secrets.AWS_REGION}}
+              role-to-assume: ${{ secrets.AWS_OIDC_RUNNER_ROLE }}
 
         -   name: Sync to S3
             run: aws s3 sync --quiet ./docs/ s3://pyscript-docs/
