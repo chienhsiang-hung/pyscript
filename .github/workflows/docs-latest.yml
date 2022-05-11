@@ -49,7 +49,7 @@ jobs:
               role-to-assume: ${{ secrets.AWS_OIDC_RUNNER_ROLE }}
 
         -   name: Sync to S3
-            run: aws s3 sync --quiet ./docs/_build/ s3://docs.pyscript.net/
+            run: aws s3 sync --quiet ./docs/_build/dirhtml/ s3://docs.pyscript.net/
 
     # # Disabled while we figure things out where to host the build artifacts
     # # For now use the https://pyscript-docs.readthedocs.io/ staging area.
