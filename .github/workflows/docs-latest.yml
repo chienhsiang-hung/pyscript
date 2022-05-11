@@ -1,14 +1,9 @@
 name: Docs
 
 on:
-  pull_request:
-    paths:
-      - 'docs/**'
-      - '.github/workflows/docs-latest.yml'
-
   push:
       branches:
-      -   main
+      -   CORE-66/test-s3-pyscript-docs
 
 jobs:
     latest:
