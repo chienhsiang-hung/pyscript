@@ -9,15 +9,25 @@
     <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
     <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+    <py-env>
+        - pandas
+          - ./test.csv
+    </py-env>
   </head>
 
   <body>
     Hello world! <br>
     This is the current date and time, as computed by Python:
     <py-script>
+print('hi')
+    </py-script>
+    <py-script>
 from datetime import datetime
+import pandas as pd
 now = datetime.now()
-now.strftime("%m/%d/%Y, %H:%M:%S")
+print(now.strftime("%m/%d/%Y, %H:%M:%S"))
+a = pd.read_csv('./test.csv')
+a
     </py-script>
   </body>
 </html>
