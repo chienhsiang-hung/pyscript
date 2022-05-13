@@ -25,12 +25,13 @@
     <py-script>
 print('hi')
     </py-script>
+    <div id="temp_test">wait</div>
     <py-script>
 from datetime import datetime
 now = datetime.now()
 now
     </py-script>
-    <py-script>
+    <py-script output="temp_test">
 import pandas as pd
 a = pd.read_csv('./test.csv')
 a
